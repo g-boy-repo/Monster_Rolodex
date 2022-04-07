@@ -29,13 +29,24 @@ class App extends Component {
         <p>
         {/* referencing our state and referencing the key to get the name value */}
         {/* now this paragraph tag is no longer static it is now dynamic  */}
-          Hello {this.state.name.firstname} {this.state.name.lastname}! I want to work at {this.state.company}
+          Hello {this.state.name.firstname} {this.state.name. lastname}! I want to work at {this.state.company}
         </p>
         {/* Adding a click event */}
         <button onClick={() => {
           // using setState method to update the state object value
-          this.setState({name: {firstname: 'John', lastname: 'Doe'}})
-          console.log(this.state)
+          // here we are passing a update function that returns a new object
+          // and we also pass in a callback function that will be called after the state is updated (optional )
+          this.setState(() => {
+            return {
+              name: {
+                firstname: 'John',
+                lastname: 'Doe',
+              },
+              company: 'Facebook',
+            }
+          }, () => {
+            console.log(this.state) 
+          })
         }}
         >
           Change Name
