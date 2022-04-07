@@ -27,7 +27,15 @@ class App extends Component {
         {/* now this paragraph tag is no longer static it is now dynamic  */}
           Hello {this.state.name}!
         </p>
-        <button>Change Name</button>
+        {/* Adding a click event */}
+        <button onClick={() => {
+          // using setState method to update the state object value
+          this.setState({name: 'G-boy'})
+          console.log(this.setState)
+        }}
+        >
+          Change Name
+        </button>
       </header>
     </div>
   );
