@@ -11,7 +11,11 @@ class App extends Component {
     super();
     // instantiate the state object
     this.state = {
-      name: 'Felix Andrew'
+      name: {
+        firstname: 'Andrew',
+        lastname: 'Labitoria',
+      },
+      company: 'Google',
     }
   }
   // it also creates this render() method for class base components
@@ -25,13 +29,13 @@ class App extends Component {
         <p>
         {/* referencing our state and referencing the key to get the name value */}
         {/* now this paragraph tag is no longer static it is now dynamic  */}
-          Hello {this.state.name}!
+          Hello {this.state.name.firstname} {this.state.name.lastname}! I want to work at {this.state.company}
         </p>
         {/* Adding a click event */}
         <button onClick={() => {
           // using setState method to update the state object value
-          this.setState({name: 'G-boy'})
-          console.log(this.setState)
+          this.setState({name: {firstname: 'John', lastname: 'Doe'}})
+          console.log(this.state)
         }}
         >
           Change Name
